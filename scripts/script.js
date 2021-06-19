@@ -10,7 +10,7 @@
     var phone= document.getElementById("phone");
     var email= document.getElementById("email");
     var password= document.getElementById("password");
-    var password_= document.getElementById("password_");
+    var passwordCon= document.getElementById("password_");
     var err = 0;
 
     // CALL FUNCTIONS TO PERFORM VALIDATION
@@ -21,9 +21,10 @@
     required(phone);
     required(email);
     required(password);
-    required(password_);
+    required(passwordCon);
     // CALLS FUNCTION TO CHECK IF POLLING STATION isAlphaNumeric
     isAlphaNumeric(password);
+    isAlphaNumeric(passwordCon);
 
     // CALLS FUNCTION TO CHECK FOR INTEGERS
     //anInteger(Clerk_id);

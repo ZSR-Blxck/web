@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION["email"]) || $_SESSION["email"] !== true){
+	header("location:login.php");
+	exit;
+}
+?>
 <html>
 <head>
 	<title> Grocery </title>
@@ -6,21 +15,7 @@
 
 <body>
 	<div id="header">
-		<form name="form" id="form" method="post" action="scripts/login.php" onsubmit="return(Validate(form))">
-			<span id="bu">
-				<!-- DECLARATION OF TEXTFIELD REQUIRING POLLING STATION --> 
-				 <label for="email">Email:</label>
-				 <input type="text" name="email" id="email" />
-				 <!-- DECLARATION OF TEXTFIELD REQUIRING CANDIDATE 1  -->
-				 <label for="Password">Password:</label> 
-				 <input type="text" name="password" id="password" />
-				
-				<button type ="submit" id="login"> Login </button>
-			</span>
-		</form>
-		<a href="p2.html">
-					<button type ="sign_up" id="signup"> Sign Up </button>
-				</a>
+		<p>Welcome, user</p>
 		<a href="index.html">
 		 	<h1> Grocery </h1>
 		</a>

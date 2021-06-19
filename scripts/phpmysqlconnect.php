@@ -7,8 +7,10 @@ $ln_id = $_POST['ln_id'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
 $password = $_POST['password'];
-$password_ = $_POST['password_'];
-$fn_idErr = $ln_idErr = $phoneErr = $email_idErr = $passwordErr= $password_Err = "";
+$passwordCon = $_POST['passwordCon'];
+$passwor_hash = password_hash($password, PASSWORD_BCRYPT);
+$date = date('Y-m-d H:i:s');
+$fn_idErr = $ln_idErr = $phoneErr = $emailErr = $passwordErr= $passwordConErr = "";
 
 // DECLARE ARRAY TO STORE ERRORS
 $err = array();
@@ -17,7 +19,7 @@ $err = array();
 
 
 // NESTED-IF STATEMENT TO PERFORM VALIDATION OF DATA  
-if($_SERVER["REQUEST_METHOD"]=="POST")
+/*if($_SERVER["REQUEST_METHOD"]=="POST")
 {
 	// CHECKS IF FIELD IS EMPTY
 	if (empty($_POST["fn_id"])) 
@@ -72,40 +74,42 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 		}
 	}
 	// CHECKS IF FIELD IS EMPTY
-    if (empty($_POST["password_"])) 
+    if (empty($_POST["passwordCon"])) 
     {
     	// PRINTS ERROR STATEMENT
-		$password_Err = "Please confirm password";
+		$passwordConErr = "Please confirm password";
 		// INSERTS ERROR INTO ARRRAY
-		array_push($err, $password_Err);
-			echo nl2br ("$password_Err \r\n");
+		array_push($err, $passwordConErr);
+			echo nl2br ("$passwordConErr \r\n");
 	}else 
 	{
 		// CHECKS IF VALUE WAS NOT ALPHANUMERIC 
-		if($password != $password_)
+		if($password != $passwordCon)
 		{
 			// PRINTS ERROR STATEMENT
-			$password_Err= "Password Should be Identical";
+			$passwordConErr= "Password Should be Identical";
 			// INSERTS ERROR INTO ARRRAY
-			array_push($err, $password_Err);
-				echo nl2br("$password_Err \r\n");
+			array_push($err, $passwordConErr);
+				echo nl2br("$passwordConErr \r\n");
 		}else{
-			$password_ = $_POST["password_"];
+			$passwordCon = $_POST["passwordCon"];
 		}
 	}
-}	
+}*/
+
 
 // CHECKS ERROR ARRAY AND IF EMPTY CONNECTS TO DATABASE
 if (sizeof($err)==0) {
 
 	// USES 'dbconfig.php' TO RETREIVE DATABASE INFORMATION TO CONNECT
 	require_once 'dbconfig.php';
+	require_once 'session.php';
 
 	// CONNECTS TO DATABASE USING A PDO CONNECTION
 	try {
 		// IF INFRMATION RETREIVED FROM 'dbconfig.php' MATCHES A CREATED DATABASE CONNECTION CREATED AND CONFIRMATION MESSAGE PRINTED
 	    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-	    echo ( "Connected to $dbname at $host successfully.");
+	    echo ( "Registration Successful");
 	    $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	    // CATCHES ERRORS AND PRINTS FAILURE MESSAGE
@@ -114,13 +118,15 @@ if (sizeof($err)==0) {
 }
 
 // INSERT VALUES FROM THE HTML INTO THE DATABASE AND STORES THEM
-$sql = "INSERT INTO users(fn_id, ln_id, phone,email,password,password_) VALUES ('$fn_id','$ln_id','$phone','$email','$password','$password_')";
+$sql = "INSERT INTO users(fn_id, ln_id, phone,email,password,date) VALUES ('$fn_id','$ln_id','$phone','$email','$password','$date')";
 $conn->exec($sql);
 
+header("location: welcome.php");
+
 // RETREIVES ALL VALUES STORED IN THE DATABASE 
-$stmt =$conn->prepare("SELECT * FROM users");
-$stmt->execute();
-$results = $stmt->fetchAll();
+//$stmt =$conn->prepare("SELECT * FROM users");
+//$stmt->execute();
+//$results = $stmt->fetchAll();
 
 // CREATES THE TABLE TO STORE THE VALUES RETRIEVED IN ACCORDANCE TO SPECIFICATIONS DESCRIBED IN "PROBLEM 1 VERSION B"
 /*$dataTable = '<div>
