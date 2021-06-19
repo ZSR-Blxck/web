@@ -1,0 +1,30 @@
+#header{
+	height: 10%;
+	width: 100%;
+	text-align: right;
+	position: relative;
+}
+#pic{
+	position: relative;
+}
+#contact{
+	position: relative;
+	text-align: right;
+	justify-content: left;
+}
+h1{
+	text-align: center;
+}
+.navbar{
+	background-color: ghostwhite;
+	text-align: left;
+	position: relative;
+	margin-bottom: 10px;
+}
+body{
+	background-color: coral;
+}
+#notice-board,h2{
+	padding-top: 20px;
+	position: relative;
+}
