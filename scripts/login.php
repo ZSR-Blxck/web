@@ -2,42 +2,33 @@
 
 require_once "dbconfig.php";
 require_once "session.php";
+$count = 0;
+ if($_SERVER["REQUEST_METHOD"] == "POST") {
+      // username and password sent from form 
 
-$error = '';
-
-if ($_SERVER['REQUEST_METHOD']== "POST" && isset($_POST['submit'])){
-	$email = $_POST['email'];
-	$password = $_POST['password'];
-
-	if (empty($email)){
-		$error .= '<p class="error"> Please enter email.</p>';
+      $email = $_POST['email'];
+      $_password =$_POST['password'];
+try{
+ 	$conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+	    $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+      // CATCHES ERRORS AND PRINTS FAILURE MESSAGE
+	} catch (PDOException $pe) {
+    die("Could not connect to the database $dbname :" . $pe->getMessage());
 	}
-	if (empty($password)){
-		$error .= '<p class="error"> Please enter password.</p>';
-	}
-	if(empty($error)){
-		if($query = $db->prepare("SELECT * FROM users WHERE email = ?"))
-		{
-			$query-> bind_param('s',$email);
-			$query-> execute();
-			$row = $query->fetch();
-			if ($row){
-				if (password_verify($password, $row['password'])){
-					$_SESSION['email'] = $row['email'];
-					$_SESSION["email"] = $row;
 
-					header("location: welcome.php");
-					exit;
-				}
-				else{
-					$error .= '<p class="error">Invalid Password. </p>';
-				}
-			}else{
-				$error .= '<p class="error">No User Found.</p>';
-			}
-		}
-		$query->close();
-	}
-	mysqli_close($db);
-
+      $ses_sql ="SELECT email FROM users WHERE email = '$email' AND password = '$_password'";
+   		$statement = $conn->prepare($ses_sql);
+   		$statement->execute(array('email'=> $_POST["email"],'password'=>$_POST["password"]));
+      
+      $count = $statement -> rowCount();
+		
+      if($count > 0) {
+         //session_register("email");
+        $_SESSION['login_user'] = $email;
+         echo "hello";
+         header("location: welcome.php");
+      }else {
+         $error = "Your Login Name or Password is invalid";
+         echo nl2br ("$error \r\n");
+      }
 }

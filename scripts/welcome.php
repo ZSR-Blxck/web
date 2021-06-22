@@ -1,11 +1,7 @@
 <?php
 
-session_start();
+//include('session.php');
 
-if (!isset($_SESSION["email"]) || $_SESSION["email"] !== true){
-	header("location:login.php");
-	exit;
-}
 ?>
 <html>
 <head>

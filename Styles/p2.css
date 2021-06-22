@@ -1,15 +1,20 @@
 body{
 	background-color: lavender;
 	margin: auto;
-	width: 200px;
+	text-align: center;
 }
 #signUpBoxes{
 	text-align: center;
-	position: relative;
+	position: fixed;
+	width: 200px;
 }
 input{
+	text-align: center;
 	margin-bottom: 10px;
 }
 .error{
 	color: red;
+}
+#home{
+	text-align: right;
 }
