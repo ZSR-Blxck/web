@@ -1,12 +1,13 @@
 body{
 	background-color: lavender;
 	margin: auto;
-	text-align: center;
+	width: 50%;
 }
 #signUpBoxes{
+	margin: auto;
 	text-align: center;
-	position: fixed;
-	width: 200px;
+	width: 50%;
+	float: right;
 }
 input{
 	text-align: center;
@@ -16,5 +17,11 @@ input{
 	color: red;
 }
 #home{
-	text-align: right;
+	text-align: center;
+}
+.login{
+	width: 80%;
+}
+#email,#password{
+	width: 160px;
 }

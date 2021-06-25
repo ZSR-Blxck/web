@@ -14,61 +14,61 @@ DATE:27/11/20 -->
 </head>
 <body>
 	<!-- CONTAINER CONTAINING THE FORM -->
-	<div id="home">
-		<a href="index.html">Return to Homepage</a>
-	</div>
-	
-	<div id="signUpBoxes">
+		<div id="signUpBoxes">
 
-		<!-- FORM DECLARATION AND PHP AND JAVASCRIPT CONNECTION -->
-		<form name="form" id="form" method="post" action="scripts/phpmysqlconnect.php" onsubmit="return(Validate(form))">
+			<!-- FORM DECLARATION AND PHP AND JAVASCRIPT CONNECTION -->
+			<form name="form" id="form" method="post" action="scripts/phpmysqlconnect.php" onsubmit="return(Validate(form))">
 
-		<!-- CONTAINER CONTAINING THE TEXTBOX AND INPUT FIELDS	 -->
-		 <div>
-		 <h1>Sign Up</h1>
+			<!-- CONTAINER CONTAINING THE TEXTBOX AND INPUT FIELDS	 -->
+			 <div>
+			 <div id="home">
+				 <a href="index.html">
+				 	<h1>Grocery</h1>
+				 </a>
+			</div>
 
-		 <!-- DISPLAYS REQUIRED FIELDS IN RED -->
-		 <p><span class="error">* required field</span></p>
+			 <!-- DISPLAYS REQUIRED FIELDS IN RED -->
+			 <p><span class="error">* required field</span></p>
 
-		<!-- DECLARATION OF TEXTFIELD REQUIRING CLERK ID -->
-		 <label for="fn_id">First Name:</label>
-		 <span class="error">*</span>
-		 <input type="text" name="fn_id" id="fn_id"/>
-		 <br/>
-		 
-		 <!-- DECLARATION OF TEXTFIELD REQUIRING CONSTITUENCY ID --> 
-		 <label for="ln_id">Last Name:</label>
-		 <span class="error">*</span>
-		 <input type="text" name="ln_id" id="ln_id"/>
-		 <br/>
+			<!-- DECLARATION OF TEXTFIELD REQUIRING CLERK ID -->
+			 <label for="fn_id">First Name:</label>
+			 <span class="error">*</span>
+			 <input type="text" name="fn_id" id="fn_id"/>
+			 <br/>
+			 
+			 <!-- DECLARATION OF TEXTFIELD REQUIRING CONSTITUENCY ID --> 
+			 <label for="ln_id">Last Name:</label>
+			 <span class="error">*</span>
+			 <input type="text" name="ln_id" id="ln_id"/>
+			 <br/>
 
-		 <!-- DECLARATION OF TEXTFIELD REQUIRING POLL DIVISION ID --> 
-		 <label for="phone">Phone Number:</label> 
-		 <span class="error">*</span>
-		 <input type="text" name="phone" id="phone"/>
-		 <br/>
+			 <!-- DECLARATION OF TEXTFIELD REQUIRING POLL DIVISION ID --> 
+			 <label for="phone">Phone Number:</label> 
+			 <span class="error">*</span>
+			 <input type="text" name="phone" id="phone"/>
+			 <br/>
 
-		 <!-- DECLARATION OF TEXTFIELD REQUIRING POLLING STATION --> 
-		 <label for="email">Email:</label>
-		 <span class="error">*</span>
-		 <input type="text" name="email" id="email" />
-		 <br/>
+			 <!-- DECLARATION OF TEXTFIELD REQUIRING POLLING STATION --> 
+			 <label for="email">Email:</label>
+			 <span class="error">*</span>
+			 <input type="text" name="email" id="email" />
+			 <br/>
 
-		 <!-- DECLARATION OF TEXTFIELD REQUIRING CANDIDATE 1  -->
-		 <label for="Password">Password:</label> 
-		 <span class="error">*</span>
-		 <input type="text" name="password" id="password" />
-		 <br/>
+			 <!-- DECLARATION OF TEXTFIELD REQUIRING CANDIDATE 1  -->
+			 <label for="Password">Password:</label> 
+			 <span class="error">*</span>
+			 <input type="text" name="password" id="password" />
+			 <br/>
 
-		 <label for="Password">Confirm Password:</label> 
-		 <span class="error">*</span>
-		 <input type="text" name="password" id="password_" />
-		 <br/>
+			 <label for="Password">Confirm Password:</label> 
+			 <span class="error">*</span>
+			 <input type="text" name="password" id="password_" />
+			 <br/>
 
-		 <!-- SUBMIT BUTTON WHICH PROMPTS JAVASCRIPT AND PHP ACTIVATION -->
-		 <button type="submit"> Submit </button>
-		 </div>
-		 </form>
-	</div>
+			 <!-- SUBMIT BUTTON WHICH PROMPTS JAVASCRIPT AND PHP ACTIVATION -->
+			 <button type="submit"> Submit </button>
+			 </div>
+			 </form>
+		</div>
 </body>
 </html>

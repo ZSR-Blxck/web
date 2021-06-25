@@ -21,21 +21,22 @@ h1{
 	font-weight: bold;
 	text-shadow: 1px 1px 1px #222;
 }
-form{
-	padding-top: 10px;
-	padding-bottom: -20px;
-	padding-left: 120px;
-	width: 80%;
-}
-#email,#password{
-	width: 160px;
-}
 #signup{
-	margin-top: -10px;
+	float: right;
 }
 img{
-	max-width: 20%;
-	height: 50px;
+	max-width: auto;
+	height: auto;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.grid-container > div {
+  text-align: center;
 }
 #contact{
 	padding-right: 10px;
@@ -67,21 +68,24 @@ img{
  	display: none;
  }
 body{
-	background-color: black;
+	background-color: lightslategray;
 	border: 1px solid black ;
 }
 .notice-board{
-	padding-top: 10px;
-	padding-bottom: 20px;
-	position: relative;
-	margin: auto;
+	margin-top: -60px;
+	padding-bottom: 100px;
 }
 #address{
 	padding-top: 10px;
+	color: white;
 }
 footer{
 	border-top: 1px solid black;
-	background-color: lightpink;
+	background-color: black;
+	position: fixed;
+	bottom: 10px;
+	width: 100%;
+	margin-right: 20px;
 }
 @media screen and (max-width: 600px) {
   .navbar a:not(:first-child) {display: none;}
