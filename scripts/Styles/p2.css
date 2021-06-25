@@ -1,0 +1,20 @@
+body{
+	background-color: lavender;
+	margin: auto;
+	text-align: center;
+}
+#signUpBoxes{
+	text-align: center;
+	position: fixed;
+	width: 200px;
+}
+input{
+	text-align: center;
+	margin-bottom: 10px;
+}
+.error{
+	color: red;
+}
+#home{
+	text-align: right;
+}

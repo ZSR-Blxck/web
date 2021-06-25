@@ -8,13 +8,7 @@
    $_SESSION["login_user"]= $_POST['email'];
    
    $user_check = $_SESSION['login_user'];
-   
-  
-   
-   //$row = $ses_sql->fetchAll();
-   
-   //$login_session = $row['email'];
-   
+
    if(!isset($_SESSION['login_user'])){
       header("location:login.php");
       die();

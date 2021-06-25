@@ -24,9 +24,8 @@ try{
 		
       if($count > 0) {
          //session_register("email");
-        $_SESSION['login_user'] = $email;
-         echo "hello";
-         header("location: welcome.php");
+        $_SESSION['login_user'] = $email; 
+        header( "Location: welcome.html");
       }else {
          $error = "Your Login Name or Password is invalid";
          echo nl2br ("$error \r\n");
