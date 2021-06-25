@@ -3,7 +3,6 @@
 	width: 100%;
 	text-align: right;
 	position: relative;
-	background-color: palevioletred;
 	padding-bottom: 8px;
 	padding-left: -10px;
 	padding-top: -30px;
@@ -36,9 +35,7 @@ form{
 }
 img{
 	max-width: 20%;
-	height: auto;
-	position: relative;
-	display: inline-table;
+	height: 50px;
 }
 #contact{
 	padding-right: 10px;
@@ -70,14 +67,13 @@ img{
  	display: none;
  }
 body{
-	background-color: white;
+	background-color: black;
 	border: 1px solid black ;
 }
 .notice-board{
 	padding-top: 10px;
 	padding-bottom: 20px;
 	position: relative;
-	background-color: lightsteelblue;
 	margin: auto;
 }
 #address{
