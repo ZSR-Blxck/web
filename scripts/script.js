@@ -10,7 +10,7 @@
     var phone= document.getElementById("phone");
     var email= document.getElementById("email");
     var password= document.getElementById("password");
-    var passwordCon= document.getElementById("password_");
+    var passwordCon= document.getElementById("passwordCon");
     var err = 0;
 
     // CALL FUNCTIONS TO PERFORM VALIDATION

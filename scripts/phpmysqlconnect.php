@@ -19,59 +19,52 @@ $err = array();
 
 
 // NESTED-IF STATEMENT TO PERFORM VALIDATION OF DATA  
-/*if($_SERVER["REQUEST_METHOD"]=="POST")
+if($_SERVER["REQUEST_METHOD"]=="POST")
 {
 	// CHECKS IF FIELD IS EMPTY
 	if (empty($_POST["fn_id"])) 
 	{
 		// PRINTS ERROR STATEMENT
-		$Clerk_idErr = "Please enter First Name";
+		$fn_idErr = "Please enter First Name";
 		// INSERTS ERROR INTO ARRRAY
-		array_push($err, $fn_idErr);
-			echo nl2br ("$fn_idErr\r\n");
+		header("location:p2.html");
 	}
-
 	// CHECKS IF FIELD IS EMPTY
-  	if (empty($_POST["ln_id"])) 
+  	elseif (empty($_POST["ln_id"])) 
   	{
   		// PRINTS ERROR STATEMENT
 		$ln_idErr = "Please enter Last Name";
 		// INSERTS ERROR INTO ARRRAY
-		array_push($err, $ln_idErr);
-			echo nl2br ("$ln_idErr\r\n") ;
+		header("location:p2.html");
 	}
-
 	// CHECKS IF FIELD IS EMPTY
-    if (empty($_POST["email"]))
+    elseif (empty($_POST["email"]))
     {
     	// PRINTS ERROR STATEMENT
 		$emailErr = "Please enter email address";
 		// INSERTS ERROR INTO ARRRAY
-		array_push($err, $emailErr);
-			echo nl2br ("$emailErr \r\n") ;
+		header("location:p2.html");
 	}
-
 	// CHECKS IF FIELD IS EMPTY
-    if (empty($_POST["password"])) 
+    elseif (empty($_POST["password"])) 
     {
     	// PRINTS ERROR STATEMENT
-		$Polling_stnErr = "Please enter a password";
+		$passwordErr = "Please enter a password";
 		// INSERTS ERROR INTO ARRRAY
-		array_push($err, $passwordErr);
-			echo nl2br ("$passwordErr \r\n");
-	}else 
+		header("location:p2.html");
+	}
+
+	// CHECKS IF VALUE WAS NOT ALPHANUMERIC 
+	if(!preg_match("/^[a-zA-Z0-9]*$/", $password))
 	{
-		// CHECKS IF VALUE WAS NOT ALPHANUMERIC 
-		if(!preg_match("/^[a-zA-Z0-9]*$/", $password))
-		{
-			// PRINTS ERROR STATEMENT
-			$passwordErr= "Password Should Contain Alpha-Numerical Data";
-			// INSERTS ERROR INTO ARRRAY
-			array_push($err, $passwordErr);
-				echo nl2br("$passwordErr \r\n");
-		}else{
-			$password = $_POST["password"];
-		}
+		// PRINTS ERROR STATEMENT
+		$passwordErr= "Password Should Contain Alpha-Numerical Data";
+		// INSERTS ERROR INTO ARRRAY
+		header("location:p2.html");
+	}
+	else
+	{
+		$password = $_POST["password"];
 	}
 	// CHECKS IF FIELD IS EMPTY
     if (empty($_POST["passwordCon"])) 
@@ -79,13 +72,10 @@ $err = array();
     	// PRINTS ERROR STATEMENT
 		$passwordConErr = "Please confirm password";
 		// INSERTS ERROR INTO ARRRAY
-		array_push($err, $passwordConErr);
-			echo nl2br ("$passwordConErr \r\n");
-	}else 
+		header("location:p2.html");
+	}
+	elseif($password != $passwordCon)
 	{
-		// CHECKS IF VALUE WAS NOT ALPHANUMERIC 
-		if($password != $passwordCon)
-		{
 			// PRINTS ERROR STATEMENT
 			$passwordConErr= "Password Should be Identical";
 			// INSERTS ERROR INTO ARRRAY
@@ -93,13 +83,12 @@ $err = array();
 				echo nl2br("$passwordConErr \r\n");
 		}else{
 			$passwordCon = $_POST["passwordCon"];
-		}
 	}
-}*/
-
+}
 
 // CHECKS ERROR ARRAY AND IF EMPTY CONNECTS TO DATABASE
-if (sizeof($err)==0) {
+if (sizeof($err)==0) 
+{
 
 	// USES 'dbconfig.php' TO RETREIVE DATABASE INFORMATION TO CONNECT
 	require_once 'dbconfig.php';
@@ -123,6 +112,7 @@ $conn->exec($sql);
 
 header("location: welcome.php");
 
+}
 // RETREIVES ALL VALUES STORED IN THE DATABASE 
 //$stmt =$conn->prepare("SELECT * FROM users");
 //$stmt->execute();
@@ -152,24 +142,4 @@ header("location: welcome.php");
 			        $dataTable .= '</tbody></table></div>';	
 			        // PRINTS THE FILLED TABLE TO THE USERS SCREEN			       
 			        echo $dataTable;*/
-}   
-				
-				
-
-						        
-
-		
-
-
-
-	
-
-				
-
-
-
-
-
-
-
-
+ 
